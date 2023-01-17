@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:safe/Fragments/akun.dart';
+import 'package:safe/Fragments/akunuser/akun.dart';
 import 'package:safe/Fragments/kelasfasil/kelasfasil.dart';
 import 'package:safe/Fragments/organisasi.dart';
 import 'package:safe/Fragments/individu.dart';
@@ -102,16 +102,16 @@ class _LandingPageState extends State<LandingPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                IconButton(
-                    icon: Icon(FontAwesomeIcons.building,
-                        color:
-                            _selectedIndex == 0 ? Colors.white : Colors.black),
-                    onPressed: () {
-                      setState(() {
-                        _selectedIndex = 0;
-                        appBarTitle = "Organization Assessment";
-                      });
-                    }),
+                // IconButton(
+                //     icon: Icon(FontAwesomeIcons.building,
+                //         color:
+                //             _selectedIndex == 0 ? Colors.white : Colors.black),
+                //     onPressed: () {
+                //       setState(() {
+                //         _selectedIndex = 0;
+                //         appBarTitle = "Organization Assessment";
+                //       });
+                //     }),
                 // IconButton(
                 //     icon: Icon(FontAwesomeIcons.externalLinkAlt,
                 //         color:

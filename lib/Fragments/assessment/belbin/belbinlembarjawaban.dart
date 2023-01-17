@@ -197,10 +197,12 @@ class _BelbinLembarJawabanState extends State<BelbinLembarJawaban> {
                               setState((){
                                 isLoading=true;
                               });
-                              for(int i=0;i<listpertanyaan.length;i++){
-                                for(int j=0;j<pilihanjawaban[i].length;j++){
-                                  if(bobotjawaban[i][j]>0){
-                                    await apiService.addResponPeserta(
+
+                              await Future.wait([
+                              for(int i=0;i<listpertanyaan.length;i++)//{
+                                for(int j=0;j<pilihanjawaban[i].length;j++)//{
+                                  if(bobotjawaban[i][j]>0)//{
+                                    apiService.addResponPeserta(
                                         user: nip,
                                         idtest: tkg.idtest,
                                         idkelas: tkg.idkelas,
@@ -211,22 +213,62 @@ class _BelbinLembarJawabanState extends State<BelbinLembarJawaban> {
                                         //bobot: "",
                                         iddiklat: tkg.iddiklat,
                                         idmatadiklat: tkg.idmatadiklat,
-                                        atribut1: pilihanjawaban[i][j].atribut1);
-                                  }
-                                }
-                              }
-                              setState((){
-                                isLoading=false;
+                                        atribut1: pilihanjawaban[i][j].atribut1),
+                                  //}
+                                //}
+                              //}
+                              ]).then((v) {
+                                setState(() {
+                                  isLoading = false;
+                                });
+                              }, onError: (err) {
+                                Get.defaultDialog(
+                                  content: MyDialogInfo(
+                                      info:
+                                      "Terdapat permasalahan dalam proses penyimpanan jawaban!"),
+                                  titleStyle: TextStyle(fontSize: 0),
+                                );
                               });
+                              // for(int i=0;i<listpertanyaan.length;i++){
+                              //   for(int j=0;j<pilihanjawaban[i].length;j++){
+                              //     if(bobotjawaban[i][j]>0){
+                              //       await apiService.addResponPeserta(
+                              //           user: nip,
+                              //           idtest: tkg.idtest,
+                              //           idkelas: tkg.idkelas,
+                              //           idpertanyaan: listpertanyaan[i].idpertanyaan,
+                              //           respon: getJsonRespon(i, listpertanyaan,
+                              //               pilihanjawaban, bobotjawaban),
+                              //           nilai: bobotjawaban[i][j].toString(),
+                              //           //bobot: "",
+                              //           iddiklat: tkg.iddiklat,
+                              //           idmatadiklat: tkg.idmatadiklat,
+                              //           atribut1: pilihanjawaban[i][j].atribut1);
+                              //     }
+                              //   }
+                              // }
+                              // setState((){
+                              //   isLoading=false;
+                              // });
+                              // await Get.defaultDialog(
+                              //   content:
+                              //   MyDialogInfo(info: "Belbin telah disubmit"),
+                              //   titleStyle: TextStyle(fontSize: 0),
+                              // );
                               await Get.defaultDialog(
                                 content:
-                                MyDialogInfo(info: "Belbin telah disubmit"),
+                                MyDialogInfo(info: "Jawaban Belbin telah disubmit"),
                                 titleStyle: TextStyle(fontSize: 0),
                               );
                               //Get.back();
                               var req = await apiService.getSkorBelbin(user: nip,
                                   idkelas: tkg.idkelas, iddiklat: tkg.iddiklat,
                                   idmatadiklat: tkg.idmatadiklat, idtest: tkg.idtest,
+                              tglpengisian: DateTime.now().year.toString() +
+                                  "-" +
+                                  DateTime.now().month.toString().padLeft(2, '0') +
+                                  "-" +
+                                  DateTime.now().day.toString().padLeft(2,'0'),
                               nippeserta: nip);
 
                               List<HasilBelbin> thb=<HasilBelbin>[];

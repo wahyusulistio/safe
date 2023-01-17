@@ -13,8 +13,7 @@ import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 class HasilB5PPeserta extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
-  const HasilB5PPeserta({Key? key, required this.hb})
-      : super(key: key);
+  const HasilB5PPeserta({Key? key, required this.hb}) : super(key: key);
 
   final List<HasilB5P> hb;
   @override
@@ -36,7 +35,7 @@ class _HasilB5PPesertaState extends State<HasilB5PPeserta> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    hb=widget.hb;
+    hb = widget.hb;
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.landscapeLeft,
@@ -59,33 +58,206 @@ class _HasilB5PPesertaState extends State<HasilB5PPeserta> {
               primaryXAxis: CategoryAxis(
                 majorGridLines: const MajorGridLines(width: 0),
               ),
+              annotations: [
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Flexible",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'C',
+                    y: 40),
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Balanced",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'C',
+                    y: 50),
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Focused",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'C',
+                    y: 60),
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Challenger",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'A',
+                    y: 40),
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Negosiator",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'A',
+                    y: 50),
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Adapter",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'A',
+                    y: 60),
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Preserver",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'O',
+                    y: 40),
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Moderator",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'O',
+                    y: 50),
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Explorer",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'O',
+                    y: 60),
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Introvert",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'E',
+                    y: 40),
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Ambivert",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'E',
+                    y: 50),
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Extrovert",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'E',
+                    y: 60),
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Resilient",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'N',
+                    y: 40),
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Responsive",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'N',
+                    y: 50),
+                CartesianChartAnnotation(
+                    widget: Container(
+                        child: Text(
+                      "Reactive",
+                      style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width / 40),
+                    )),
+                    coordinateUnit: CoordinateUnit.point,
+                    x: 'N',
+                    y: 60),
+              ],
               primaryYAxis: NumericAxis(
-                  plotBands: <PlotBand>[
-                    PlotBand(
-                      shouldRenderAboveSeries: true,
-                      isVisible: true,
-                        start: 33.33,
-                        end: 33.33,
-                        //Specify the width for the line
-                        borderWidth: 2,
-                        borderColor: Colors.black,),
-                    PlotBand(
-                      shouldRenderAboveSeries: true,
-                      isVisible: true,
-                      start: 66.67,
-                      end: 66.67,
-                      //Specify the width for the line
-                      borderWidth: 2,
-                      borderColor: Colors.black,)
-                        //Specify the dash array for the line
-                        //dashArray: const <double>[4, 5])
-                  ],
-                  majorGridLines: const MajorGridLines(width: 0),
-                  numberFormat: NumberFormat.compact(),
-                maximum: 100,
+                plotBands: <PlotBand>[
+                  PlotBand(
+                    shouldRenderAboveSeries: true,
+                    isVisible: true,
+                    start: 35,
+                    end: 35,
+                    //Specify the width for the line
+                    borderWidth: 2,
+                    borderColor: Colors.black,
+                  ),
+                  PlotBand(
+                    shouldRenderAboveSeries: true,
+                    isVisible: true,
+                    start: 45,
+                    end: 45,
+                    //Specify the width for the line
+                    borderWidth: 2,
+                    borderColor: Colors.black,
+                  ),
+                  PlotBand(
+                    shouldRenderAboveSeries: true,
+                    isVisible: true,
+                    start: 55,
+                    end: 55,
+                    //Specify the width for the line
+                    borderWidth: 2,
+                    borderColor: Colors.black,
+                  ),
+                  PlotBand(
+                    shouldRenderAboveSeries: true,
+                    isVisible: true,
+                    start: 65,
+                    end: 65,
+                    //Specify the width for the line
+                    borderWidth: 2,
+                    borderColor: Colors.black,
+                  )
+                  //Specify the dash array for the line
+                  //dashArray: const <double>[4, 5])
+                ],
+                majorGridLines: const MajorGridLines(width: 0),
+                numberFormat: NumberFormat.compact(),
+                maximum: 80,
+                minimum: 20,
               ),
               // Chart title
-              title: ChartTitle(text: 'Self Perception Team Role Profile'),
+              title: ChartTitle(text: 'Big 5 Personality'),
               // Enable legend
               legend: Legend(isVisible: true, position: LegendPosition.bottom),
               // Enable tooltip
@@ -96,9 +268,10 @@ class _HasilB5PPesertaState extends State<HasilB5PPeserta> {
                     // Renders the track
                     isTrackVisible: true,
                     xValueMapper: (HasilB5P _hb, _) => _hb.dimensi,
-                    yValueMapper: (HasilB5P _hb, _) => _hb.dimensi=='E' ? int.parse(_hb.skor.replaceAll(".00", "")) : -1*int.parse(_hb.skor.replaceAll(".00", "")),
-              dataLabelSettings: DataLabelSettings(isVisible: true)
-                )
+                    yValueMapper: (HasilB5P _hb, _) => int.parse(_hb.skor),
+                    dataLabelSettings: DataLabelSettings(
+                        isVisible: true,
+                        labelAlignment: ChartDataLabelAlignment.bottom))
               ],
               // <ChartSeries<_SalesData, String>>[
               //   LineSeries<_SalesData, String>(
@@ -110,7 +283,12 @@ class _HasilB5PPesertaState extends State<HasilB5PPeserta> {
               //       dataLabelSettings: DataLabelSettings(isVisible: true))
               // ]
             ),
-            SizedBox( height: 1, child: Container(color: Colors.teal,),),
+            SizedBox(
+              height: 1,
+              child: Container(
+                color: Colors.teal,
+              ),
+            ),
             Container(
               alignment: Alignment.topLeft,
               padding: EdgeInsets.all(20),
@@ -119,15 +297,30 @@ class _HasilB5PPesertaState extends State<HasilB5PPeserta> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Text("Keterangan :", style: TextStyle(fontSize: 20),),
-                  Text("I - Introvert", style: TextStyle(fontSize: 18),),
-                  Text("E - Ekstrovert", style: TextStyle(fontSize: 18),),
-                  Text("S - Sensing", style: TextStyle(fontSize: 18),),
-                  Text("N - Intuition", style: TextStyle(fontSize: 18),),
-                  Text("T - Thinking", style: TextStyle(fontSize: 18),),
-                  Text("F - Feeling", style: TextStyle(fontSize: 18),),
-                  Text("J - Judging", style: TextStyle(fontSize: 18),),
-                  Text("P - Perceiving", style: TextStyle(fontSize: 18),),
+                  Text(
+                    "Keterangan :",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  Text(
+                    "N - NEUROTISM",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  Text(
+                    "E - EXTRAVERSION",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  Text(
+                    "O - OPENNESS",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  Text(
+                    "A - AGREEBLENESS",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  Text(
+                    "C - CONSCIENTIOUSNESS",
+                    style: TextStyle(fontSize: 18),
+                  ),
                 ],
               ),
             )
@@ -164,5 +357,3 @@ class _HasilB5PPesertaState extends State<HasilB5PPeserta> {
   //   //];
   // }
 }
-
-

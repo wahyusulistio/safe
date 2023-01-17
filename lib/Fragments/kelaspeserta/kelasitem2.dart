@@ -84,7 +84,7 @@ class _KelasItem2State extends State<KelasItem2> {
             //flex: 4,
             child: Padding(
                 padding: EdgeInsets.only(left: 0.0, bottom: 5, top: 5),
-                child: Text(kelas.namadiklat,
+                child: Text(kelas.lokasi,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: max(
@@ -94,7 +94,7 @@ class _KelasItem2State extends State<KelasItem2> {
             //flex: 4,
             child: Padding(
                 padding: EdgeInsets.only(left: 0.0),
-                child: Text(kelas.namamatadiklat,
+                child: Text(kelas.tglmulai + " s.d. "+kelas.tglselesai,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: max(

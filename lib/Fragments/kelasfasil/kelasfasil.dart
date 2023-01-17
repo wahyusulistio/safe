@@ -396,7 +396,7 @@ class _KelasFasilitatorState extends State<KelasFasilitator>
       child: Column(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 10, left: 10, right: 10),
+            padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
             child: Row(
               children: [
                 Expanded(
@@ -511,7 +511,8 @@ class _KelasFasilitatorState extends State<KelasFasilitator>
           ),
           SizedBox(height: 10,),
           _hasilfiltered.length>0 ? Container(
-            height: MediaQuery.of(context).size.height*4 / 5-70,
+            //color: Colors.red,
+            height: MediaQuery.of(context).size.height*0.7-20,
             child: ListView.builder(
               scrollDirection: Axis.vertical,
               shrinkWrap: false,

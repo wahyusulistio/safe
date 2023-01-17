@@ -4,6 +4,7 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:safe/Fragments/assessment/b5p/b5phasilfasilitator.dart';
 import 'package:safe/Fragments/assessment/belbin/belbinhasilfasilitator.dart';
 import 'package:safe/Fragments/assessment/mbti/mbtihasilfasilitator.dart';
 import 'package:safe/Fragments/assessment/sosiometri/sosiometrihasilfasilitator.dart';
@@ -87,6 +88,9 @@ class _ManageHasilAsmntItemState extends State<ManageHasilAsmntItem> {
         }
         else if(indasmnt.jenistes=="2"){
           Get.to(()=>MBTIHasillFasilitator(tkg: indasmnt,));
+        }
+        else if(indasmnt.jenistes=="3"){
+          Get.to(()=>B5PHasillFasilitator(tkg: indasmnt,));
         }
       },
       // subtitle: Text("Intermediate", style: TextStyle(color: Colors.white)),

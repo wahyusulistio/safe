@@ -493,6 +493,8 @@ class ApiService {
       'user': user,
       'idkelas': idkelas,
     });
+    print("body grouping $body");
+
     String jwttoken = await getJWT();
 
     var uri = new Uri(
@@ -627,6 +629,45 @@ class ApiService {
         user: user,
         idgrouping: idgrouping,
         keywordpeserta: keywordpeserta,
+      );
+    } else {
+      return response;
+    }
+  }
+
+  //mendapatkan daftar kelompok di satu kelas di grouping trtentu
+  Future<http.Response> getKelompokPesertaGrouping2({
+    required String user,
+    required String idgrouping,
+    required String nippeserta,
+  }) async {
+    var body = jsonEncode({
+      'user': user,
+      'idgrouping': idgrouping,
+      'nippeserta': nippeserta,
+    });
+    print("body cek group peserta 2 $body");
+    String jwttoken = await getJWT();
+
+    var uri = new Uri(
+        scheme: "https",
+        host:
+        "selfassessment.bpk.go.id", // "127.0.0.1", //"hqbadiklat.bpk.go.id",
+        //port: port1, // int.parse("8000", radix: 10), // int.parse("7070", radix: 10),
+        path: "/api/pesertaingrouping2");
+    var head = headers;
+    head['Authorization'] = 'Bearer ' + jwttoken;
+    //head['Content-Type']='application/json';
+    http.Response response =
+    //await http.post(Uri.https(super.authPath,'/api/userad/ValidatePostWithKeys'), headers: super.headers, body: body);
+    await http.post(uri, headers: head, body: body);
+
+    if (response.body.contains("Token expired")) {
+      cekValidasiJwt(jwttoken);
+      return getKelompokPesertaGrouping2(
+        user: user,
+        idgrouping: idgrouping,
+        nippeserta: nippeserta,
       );
     } else {
       return response;
@@ -1545,6 +1586,7 @@ class ApiService {
     required String iddiklat,
     required String idmatadiklat,
     required String nippeserta,
+    required String tglpengisian,
   }) async {
     var body = jsonEncode({
       'user': user,
@@ -1553,6 +1595,7 @@ class ApiService {
       'iddiklat': iddiklat,
     'idmatadiklat': idmatadiklat=="null"?"":idmatadiklat,
       'peserta': nippeserta,
+      'tglpengisian': tglpengisian,
     });
     print("body get avail belbin skor $body");
     String jwttoken = await getJWT();
@@ -1579,6 +1622,54 @@ class ApiService {
         iddiklat: iddiklat,
         idmatadiklat: idmatadiklat,
         nippeserta: nippeserta,
+        tglpengisian: tglpengisian
+      );
+    } else {
+      return response;
+    }
+  }
+
+  Future<http.Response> getSkorBelbin2({
+    required String user,
+    required String idtest,
+    required String idkelas,
+    required String iddiklat,
+    required String idmatadiklat,
+    required String nippeserta,
+  }) async {
+    var body = jsonEncode({
+      'user': user,
+      'idtest': idtest,
+      'idkelas': idkelas,
+      'iddiklat': iddiklat,
+      'idmatadiklat': idmatadiklat=="null"?"":idmatadiklat,
+      'peserta': nippeserta,
+    });
+    print("body get avail belbin skor $body");
+    String jwttoken = await getJWT();
+
+    var uri = new Uri(
+        scheme: "https",
+        host:
+        "selfassessment.bpk.go.id", // "127.0.0.1", //"hqbadiklat.bpk.go.id",
+        //port: port1, // int.parse("8000", radix: 10), // int.parse("7070", radix: 10),
+        path: "/api/skorbelbin2");
+    var head = headers;
+    head['Authorization'] = 'Bearer ' + jwttoken;
+    //head['Content-Type']='application/json';
+    http.Response response =
+    //await http.post(Uri.https(super.authPath,'/api/userad/ValidatePostWithKeys'), headers: super.headers, body: body);
+    await http.post(uri, headers: head, body: body);
+
+    if (response.body.contains("Token expired")) {
+      cekValidasiJwt(jwttoken);
+      return getSkorBelbin2(
+          user: user,
+          idtest: idtest,
+          idkelas: idkelas,
+          iddiklat: iddiklat,
+          idmatadiklat: idmatadiklat,
+          nippeserta: nippeserta,
       );
     } else {
       return response;
@@ -2159,6 +2250,202 @@ class ApiService {
         iddiklat: iddiklat,
         idmatadiklat: idmatadiklat,
         nippeserta: nippeserta,
+      );
+    } else {
+      return response;
+    }
+  }
+
+
+  //menyimpan respon peserta
+  Future<http.Response> daftarJenisTest({
+    required String user,
+  }) async {
+    var body = jsonEncode({
+      'user': user,
+    });
+    print("body daftar jenis test $body");
+    String jwttoken = await getJWT();
+
+    var uri = new Uri(
+        scheme: "https",
+        host:
+        "selfassessment.bpk.go.id", // "127.0.0.1", //"hqbadiklat.bpk.go.id",
+        //port: port1, // int.parse("8000", radix: 10), // int.parse("7070", radix: 10),
+        path: "/api/daftarjenistest");
+    var head = headers;
+    head['Authorization'] = 'Bearer ' + jwttoken;
+    //head['Content-Type']='application/json';
+    http.Response response =
+    //await http.post(Uri.https(super.authPath,'/api/userad/ValidatePostWithKeys'), headers: super.headers, body: body);
+    await http.post(uri, headers: head, body: body);
+
+    if (response.body.contains("Token expired")) {
+      cekValidasiJwt(jwttoken);
+      return daftarJenisTest(
+        user: user,
+      );
+    } else {
+      return response;
+    }
+  }
+
+  Future<http.Response> daftarTest({
+    required String user,
+  }) async {
+    var body = jsonEncode({
+      'user': user,
+    });
+    print("body daftar jenis test $body");
+    String jwttoken = await getJWT();
+
+    var uri = new Uri(
+        scheme: "https",
+        host:
+        "selfassessment.bpk.go.id", // "127.0.0.1", //"hqbadiklat.bpk.go.id",
+        //port: port1, // int.parse("8000", radix: 10), // int.parse("7070", radix: 10),
+        path: "/api/daftartest");
+    var head = headers;
+    head['Authorization'] = 'Bearer ' + jwttoken;
+    //head['Content-Type']='application/json';
+    http.Response response =
+    //await http.post(Uri.https(super.authPath,'/api/userad/ValidatePostWithKeys'), headers: super.headers, body: body);
+    await http.post(uri, headers: head, body: body);
+
+    if (response.body.contains("Token expired")) {
+      cekValidasiJwt(jwttoken);
+      return daftarTest(
+        user: user,
+      );
+    } else {
+      return response;
+    }
+  }
+
+  Future<http.Response> historyAssessmentPeserta({
+    required String user,
+    required String peserta,
+    required String search,
+    required String page,
+  }) async {
+    var body = jsonEncode({
+      'user': user,
+      'peserta': peserta,
+      'search': search,
+      'page':page
+    });
+    print("body history peserta $body");
+    String jwttoken = await getJWT();
+
+    var uri = new Uri(
+        scheme: "https",
+        host:
+        "selfassessment.bpk.go.id", // "127.0.0.1", //"hqbadiklat.bpk.go.id",
+        //port: port1, // int.parse("8000", radix: 10), // int.parse("7070", radix: 10),
+        path: "/api/historyassessmentpeserta");
+    var head = headers;
+    head['Authorization'] = 'Bearer ' + jwttoken;
+    //head['Content-Type']='application/json';
+    http.Response response =
+    //await http.post(Uri.https(super.authPath,'/api/userad/ValidatePostWithKeys'), headers: super.headers, body: body);
+    await http.post(uri, headers: head, body: body);
+
+    if (response.body.contains("Token expired")) {
+      cekValidasiJwt(jwttoken);
+      return historyAssessmentPeserta(
+        user: user,
+        peserta: peserta,
+        search: search,
+        page: page,
+      );
+    } else {
+      return response;
+    }
+  }
+
+  Future<http.Response> historyAssessment({
+    required String user,
+    required String idjenistest,
+    required String search,
+    required String page,
+  }) async {
+    var body = jsonEncode({
+      'user': user,
+      'idjenistest': idjenistest,
+      'search': search,
+      'page':page
+    });
+    print("body history assessment $body");
+    String jwttoken = await getJWT();
+
+    var uri = new Uri(
+        scheme: "https",
+        host:
+        "selfassessment.bpk.go.id", // "127.0.0.1", //"hqbadiklat.bpk.go.id",
+        //port: port1, // int.parse("8000", radix: 10), // int.parse("7070", radix: 10),
+        path: "/api/historyassessment");
+    var head = headers;
+    head['Authorization'] = 'Bearer ' + jwttoken;
+    //head['Content-Type']='application/json';
+    http.Response response =
+    //await http.post(Uri.https(super.authPath,'/api/userad/ValidatePostWithKeys'), headers: super.headers, body: body);
+    await http.post(uri, headers: head, body: body);
+
+    if (response.body.contains("Token expired")) {
+      cekValidasiJwt(jwttoken);
+      return historyAssessment(
+        user: user,
+        idjenistest: idjenistest,
+        search: search,
+        page: page,
+      );
+    } else {
+      return response;
+    }
+  }
+
+  //hapus daftar assessment available in class
+  Future<http.Response> updateTest({
+    required String user,
+    required String idtest,
+    required String status,
+    required String inclass,
+    required String ingroup,
+    required String nonclass,
+  }) async {
+    var body = jsonEncode({
+      'user': user,
+      'idtest': idtest,
+      'status': status,
+      'inclass': inclass,
+      'ingroup': ingroup,
+      'nonclass': nonclass,
+    });
+    print("body update Test $body");
+    String jwttoken = await getJWT();
+
+    var uri = new Uri(
+        scheme: "https",
+        host:
+        "selfassessment.bpk.go.id", // "127.0.0.1", //"hqbadiklat.bpk.go.id",
+        //port: port1, // int.parse("8000", radix: 10), // int.parse("7070", radix: 10),
+        path: "/api/updatetest");
+    var head = headers;
+    head['Authorization'] = 'Bearer ' + jwttoken;
+    //head['Content-Type']='application/json';
+    http.Response response =
+    //await http.post(Uri.https(super.authPath,'/api/userad/ValidatePostWithKeys'), headers: super.headers, body: body);
+    await http.post(uri, headers: head, body: body);
+
+    if (response.body.contains("Token expired")) {
+      cekValidasiJwt(jwttoken);
+      return updateTest(
+        user: user,
+        idtest: idtest,
+        status: status,
+        inclass: inclass,
+        ingroup: ingroup,
+        nonclass: nonclass,
       );
     } else {
       return response;

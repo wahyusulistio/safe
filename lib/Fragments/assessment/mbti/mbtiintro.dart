@@ -65,6 +65,9 @@ class _MBTIIntroState extends State<MBTIIntro> {
   }
 
   Future<void> initializeMBTI() async {
+    setState((){
+      isLoading=true;
+    });
     listpertanyaan= await getSoalTest(idtest);
     List<PilihanJawaban> tjawab=<PilihanJawaban>[];
     //List<int> tbobot=<int>[];
@@ -77,6 +80,10 @@ class _MBTIIntroState extends State<MBTIIntro> {
       //tbobot=List.generate(tjawab.length, (index) => 0);
       //bobotjawaban.add(tbobot);
     }
+    setState((){
+      isLoading=false;
+    });
+
   }
 
   @override
@@ -149,12 +156,12 @@ class _MBTIIntroState extends State<MBTIIntro> {
                       child: isLoading ?
                       SizedBox(
                         width: (MediaQuery.of(context).size.width<MediaQuery.of(context).size.height) ?
-                        MediaQuery.of(context).size.width * 0.08 :
-                        MediaQuery.of(context).size.height * 0.08,
+                        MediaQuery.of(context).size.width * 0.06 :
+                        MediaQuery.of(context).size.height * 0.06,
                         height: (MediaQuery.of(context).size.width<MediaQuery.of(context).size.height) ?
-                        MediaQuery.of(context).size.width * 0.08 :
-                        MediaQuery.of(context).size.height * 0.08,
-                        child: new CircularProgressIndicator(valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),),
+                        MediaQuery.of(context).size.width * 0.06 :
+                        MediaQuery.of(context).size.height * 0.06,
+                        child: new CircularProgressIndicator(valueColor: new AlwaysStoppedAnimation<Color>(Colors.teal),),
                       ): Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,

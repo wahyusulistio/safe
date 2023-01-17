@@ -336,17 +336,27 @@ class _B5PLembarJawabanState extends State<B5PLembarJawaban> {
                 Row(
                   children: [
                     Expanded(
-                      flex: 5,
+                      flex: 15,
                       child: Container(
-                        padding: EdgeInsets.all(10),
-                        child: Text("No"),
+                        //width: 100,
+                        //color: Colors.red,
+                        //margin: EdgeInsets.only(left: 10),
+                        padding: EdgeInsets.only(left: 10),
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "No",
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                     Expanded(
-                      flex: 10,
+                      flex: 50,
                       child: Container(
-                        padding: EdgeInsets.all(10),
-                        child: AutoSizeText("Sifat"),
+                        alignment: Alignment.centerRight,
+                        padding: EdgeInsets.only(right: 5),
+                        child: AutoSizeText("Sifat",
+                            textAlign: TextAlign.right,
+                            style: TextStyle(color: Colors.white)),
                       ),
                     ),
                     Expanded(
@@ -354,21 +364,47 @@ class _B5PLembarJawabanState extends State<B5PLembarJawaban> {
                       child: Container(
                         padding: EdgeInsets.all(10),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          //mainAxisSize: MainAxisSize.values([]),
                           children: [
-                            Text("5"),
-                            Text("4"),
-                            Text("3"),
-                            Text("2"),
-                            Text("1"),
+                            Text(
+                              "<----oOo---->",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            // Text(
+                            //   "5",
+                            //   style: TextStyle(color: Colors.white),
+                            // ),
+                            // Text(
+                            //   "4",
+                            //   style: TextStyle(color: Colors.white),
+                            // ),
+                            // Text(
+                            //   "3",
+                            //   style: TextStyle(color: Colors.white),
+                            // ),
+                            // Text(
+                            //   "2",
+                            //   style: TextStyle(color: Colors.white),
+                            // ),
+                            // Text(
+                            //   "1",
+                            //   style: TextStyle(color: Colors.white),
+                            // ),
                           ],
                         ),
                       ),
                     ),
                     Expanded(
-                      flex: 10,
+                      flex: 50,
                       child: Container(
-                        padding: EdgeInsets.all(10),
-                        child: AutoSizeText("Sifat"),
+                        alignment: Alignment.centerLeft,
+                        padding: EdgeInsets.only(left: 5),
+                        child: AutoSizeText(
+                          "Sifat",
+                          textAlign: TextAlign.start,
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ],
@@ -389,8 +425,10 @@ class _B5PLembarJawabanState extends State<B5PLembarJawaban> {
                           //isLoading=true;
                           return CircularProgressIndicator();
                         } else {
-                          List<String> rangepilihan=<String>[];
-                          rangepilihan=pilihanjawaban[index][0].pilihanjawaban.split("|");
+                          List<String> rangepilihan = <String>[];
+                          rangepilihan = pilihanjawaban[index][0]
+                              .pilihanjawaban
+                              .split("|");
                           return Card(
                             child: Container(
                               margin: EdgeInsets.only(
@@ -401,26 +439,45 @@ class _B5PLembarJawabanState extends State<B5PLembarJawaban> {
                               child: Row(
                                 children: [
                                   Expanded(
-                                    flex: 5,
+                                    flex: 15,
                                     child: Container(
-                                      padding: EdgeInsets.all(10),
-                                      child: Text((index + 1).toString()),
+                                      alignment: Alignment.centerLeft,
+                                      //color: Colors.green,
+                                      //padding: EdgeInsets.all(10),
+                                      child: Text(
+                                        (index + 1).toString() + ".",
+                                        textAlign: TextAlign.start,
+                                      ),
                                     ),
                                   ),
                                   Expanded(
-                                    flex: 10,
+                                    flex: 50,
                                     child: Container(
-                                      padding: EdgeInsets.all(10),
-                                      child: AutoSizeText(rangepilihan[0]),
+                                      alignment: Alignment.centerRight,
+                                      //color: Colors.green,
+                                      padding: EdgeInsets.only(right: 10),
+                                      child: AutoSizeText(
+                                        rangepilihan[0],
+                                        maxLines: 3,
+                                        textAlign: TextAlign.right,
+                                      ),
                                     ),
                                   ),
                                   Expanded(
                                     flex: 80,
                                     child: Container(
-                                      padding: EdgeInsets.all(10),
+                                      //padding: EdgeInsets.all(10),
                                       child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
                                         children: [
                                           Radio(
+                                            visualDensity: const VisualDensity(
+                                                horizontal: VisualDensity
+                                                    .minimumDensity,
+                                                vertical: VisualDensity
+                                                    .minimumDensity),
+                                            //materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                                             value: 5,
                                             groupValue: jawabanpeserta[
                                                 index], //"row" + (i + 1).toString(),
@@ -431,9 +488,17 @@ class _B5PLembarJawabanState extends State<B5PLembarJawaban> {
                                             },
                                           ),
                                           Radio(
+                                            visualDensity: const VisualDensity(
+                                                horizontal: VisualDensity
+                                                    .minimumDensity,
+                                                vertical: VisualDensity
+                                                    .minimumDensity),
+                                            materialTapTargetSize:
+                                                MaterialTapTargetSize
+                                                    .shrinkWrap,
                                             value: 4,
                                             groupValue: jawabanpeserta[
-                                            index], //"row" + (i + 1).toString(),
+                                                index], //"row" + (i + 1).toString(),
                                             onChanged: (Object? value) {
                                               setState(() {
                                                 jawabanpeserta[index] = 4;
@@ -441,9 +506,17 @@ class _B5PLembarJawabanState extends State<B5PLembarJawaban> {
                                             },
                                           ),
                                           Radio(
+                                            visualDensity: const VisualDensity(
+                                                horizontal: VisualDensity
+                                                    .minimumDensity,
+                                                vertical: VisualDensity
+                                                    .minimumDensity),
+                                            materialTapTargetSize:
+                                                MaterialTapTargetSize
+                                                    .shrinkWrap,
                                             value: 3,
                                             groupValue: jawabanpeserta[
-                                            index], //"row" + (i + 1).toString(),
+                                                index], //"row" + (i + 1).toString(),
                                             onChanged: (Object? value) {
                                               setState(() {
                                                 jawabanpeserta[index] = 3;
@@ -451,9 +524,17 @@ class _B5PLembarJawabanState extends State<B5PLembarJawaban> {
                                             },
                                           ),
                                           Radio(
+                                            visualDensity: const VisualDensity(
+                                                horizontal: VisualDensity
+                                                    .minimumDensity,
+                                                vertical: VisualDensity
+                                                    .minimumDensity),
+                                            materialTapTargetSize:
+                                                MaterialTapTargetSize
+                                                    .shrinkWrap,
                                             value: 2,
                                             groupValue: jawabanpeserta[
-                                            index], //"row" + (i + 1).toString(),
+                                                index], //"row" + (i + 1).toString(),
                                             onChanged: (Object? value) {
                                               setState(() {
                                                 jawabanpeserta[index] = 2;
@@ -461,9 +542,17 @@ class _B5PLembarJawabanState extends State<B5PLembarJawaban> {
                                             },
                                           ),
                                           Radio(
+                                            visualDensity: const VisualDensity(
+                                                horizontal: VisualDensity
+                                                    .minimumDensity,
+                                                vertical: VisualDensity
+                                                    .minimumDensity),
+                                            materialTapTargetSize:
+                                                MaterialTapTargetSize
+                                                    .shrinkWrap,
                                             value: 1,
                                             groupValue: jawabanpeserta[
-                                            index], //"row" + (i + 1).toString(),
+                                                index], //"row" + (i + 1).toString(),
                                             onChanged: (Object? value) {
                                               setState(() {
                                                 jawabanpeserta[index] = 1;
@@ -475,10 +564,16 @@ class _B5PLembarJawabanState extends State<B5PLembarJawaban> {
                                     ),
                                   ),
                                   Expanded(
-                                    flex: 10,
+                                    flex: 50,
                                     child: Container(
-                                      padding: EdgeInsets.all(10),
-                                      child: AutoSizeText(rangepilihan[1]),
+                                      //color: Colors.green,
+                                      alignment: Alignment.centerLeft,
+                                      padding: EdgeInsets.only(left: 10),
+                                      child: AutoSizeText(
+                                        rangepilihan[1],
+                                        maxLines: 3,
+                                        textAlign: TextAlign.start,
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -545,28 +640,28 @@ class _B5PLembarJawabanState extends State<B5PLembarJawaban> {
                                       //bobot: "",
                                       iddiklat: tkg.iddiklat,
                                       idmatadiklat: tkg.idmatadiklat,
-                                      atribut1: pilihanjawaban[i]
-                                              [jawabanpeserta[i]]
-                                          .atribut1),
+                                      atribut1: pilihanjawaban[i][0].atribut1),
                                 //}
                                 //}
                               ]).then((v) {
                                 setState(() {
                                   isLoading = false;
                                 });
-                                Get.defaultDialog(
-                                  content:
-                                  MyDialogInfo(info: "B5P telah disubmit"),
-                                  titleStyle: TextStyle(fontSize: 0),
-                                );
+
                               }, onError: (err) {
                                 Get.defaultDialog(
-                                  content:
-                                  MyDialogInfo(info: "Terdapat permasalahan dalam proses penyimpanan jawaban!"),
+                                  content: MyDialogInfo(
+                                      info:
+                                          "Terdapat permasalahan dalam proses penyimpanan jawaban!"),
                                   titleStyle: TextStyle(fontSize: 0),
                                 );
                               });
 
+                              await Get.defaultDialog(
+                                content:
+                                MyDialogInfo(info: "B5P telah disubmit"),
+                                titleStyle: TextStyle(fontSize: 0),
+                              );
                               //Get.back();
                               var req = await apiService.getSkorB5P(
                                   user: nip,
@@ -575,10 +670,11 @@ class _B5PLembarJawabanState extends State<B5PLembarJawaban> {
                                   idmatadiklat: tkg.idmatadiklat,
                                   idtest: tkg.idtest,
                                   nippeserta: nip,
-                                tglpengisian: DateTime.now().year.toString()+"-"+
-                                    DateTime.now().month.toString()+"-"+
-                                    DateTime.now().day.toString()
-                              );
+                                  tglpengisian: DateTime.now().year.toString() +
+                                      "-" +
+                                      DateTime.now().month.toString().padLeft(2, '0') +
+                                      "-" +
+                                      DateTime.now().day.toString().padLeft(2,'0'));
 
                               List<HasilB5P> thb = <HasilB5P>[];
                               if (jsonDecode(req.body)['data'] != null) {
@@ -589,6 +685,8 @@ class _B5PLembarJawabanState extends State<B5PLembarJawaban> {
                                       jsonDecode(req.body)['data'][i]));
                                 }
                               }
+                              // Navigator.pushReplacement(context,
+                              // MaterialPageRoute(builder: (context)=> HasilB5PPeserta(hb: thb)));
                               Get.off(() => HasilB5PPeserta(
                                     hb: thb,
                                   ));

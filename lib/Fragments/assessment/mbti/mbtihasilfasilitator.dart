@@ -651,7 +651,8 @@ class HasilMBTIAllRoleDataSource extends DataGridSource {
                           style: TextStyle(color: Colors.white),
                         ));
                   })
-                : Text(cell.value.toString())),
+                : Text(cell.value.toString())
+        ),
       );
     }).toList());
   }

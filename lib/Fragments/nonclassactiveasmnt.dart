@@ -5,6 +5,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:safe/Fragments/assessment/b5p/b5pintro.dart';
 import 'package:safe/Fragments/assessment/belbin/belbinintro.dart';
 import 'package:safe/Fragments/assessment/mbti/mbtiintro.dart';
 import 'package:safe/Fragments/assessment/profilkapabilitas/kapabilitasintro.dart';
@@ -113,15 +114,15 @@ class _NonClassActiveAsmntState extends State<NonClassActiveAsmnt> {
             fontSize: max(MediaQuery.of(context).size.width * 0.03, 15)),
       ),
       onTap: () async {
-        if (indasmnt.jenistest == "3") {
+        if (indasmnt.jenistest == "0") {
           Get.to(()=>KapabilitasIntro(indasmnt: indasmnt,));
         }
         else if(indasmnt.jenistest=="1"){
 
           Get.to(()=>BelbinIntro(idtest: indasmnt.asmntid,nip: nip, tkg:
           TestKelasGrouping(idtest: indasmnt.asmntid, idgrouping: "",
-          iddiklat: "", idmatadiklat: "",
-          idkelas: "", inclass: "",
+          iddiklat: "ZZZZZZ", idmatadiklat: "",
+          idkelas: "DBF4E2DD-CDDF-4D14-B1B8-278299BAF975", inclass: "",
           ingroup: "", jenistes: "1",
           namates: indasmnt.asmntname, status: "1"),));
         }
@@ -129,9 +130,18 @@ class _NonClassActiveAsmntState extends State<NonClassActiveAsmnt> {
 
           Get.to(()=>MBTIIntro(idtest: indasmnt.asmntid,nip: nip, tkg:
           TestKelasGrouping(idtest: indasmnt.asmntid, idgrouping: "",
-              iddiklat: "", idmatadiklat: "",
-              idkelas: "", inclass: "",
+              iddiklat: "ZZZZZZ", idmatadiklat: "",
+              idkelas: "DBF4E2DD-CDDF-4D14-B1B8-278299BAF975", inclass: "",
               ingroup: "", jenistes: "2",
+              namates: indasmnt.asmntname, status: "1"),));
+        }
+        else if(indasmnt.jenistest=="3"){
+
+          Get.to(()=>B5PIntro(idtest: indasmnt.asmntid,nip: nip, tkg:
+          TestKelasGrouping(idtest: indasmnt.asmntid, idgrouping: "",
+              iddiklat: "ZZZZZZ", idmatadiklat: "",
+              idkelas: "DBF4E2DD-CDDF-4D14-B1B8-278299BAF975", inclass: "",
+              ingroup: "", jenistes: "3",
               namates: indasmnt.asmntname, status: "1"),));
         }
       },
@@ -139,8 +149,9 @@ class _NonClassActiveAsmntState extends State<NonClassActiveAsmnt> {
   }
 
   Future<void> getHasilBelbin(IndAssessment indasmnt) async {
+    print("masuk cek belbin");
     var req = await apiService.cekBelbin(user: nip,
-        idkelas: "", iddiklat: "",
+        idkelas: "DBF4E2DD-CDDF-4D14-B1B8-278299BAF975", iddiklat: "ZZZZZZ",
         idmatadiklat: "", idtest: indasmnt.asmntid);
 
     //List<HasilSosiometriTBJFPAP2022> tasmnt=<HasilSosiometriTBJFPAP2022>[];
@@ -156,8 +167,8 @@ class _NonClassActiveAsmntState extends State<NonClassActiveAsmnt> {
 
     if(cekBelbinPeserta)
     {
-      var req = await apiService.getSkorBelbin(user: nip,
-          idkelas: "", iddiklat: "",
+      var req = await apiService.getSkorBelbin2(user: nip,
+          idkelas: "DBF4E2DD-CDDF-4D14-B1B8-278299BAF975", iddiklat: "ZZZZZZ",
           idmatadiklat: "", idtest: indasmnt.asmntid,
           nippeserta: nip);
 

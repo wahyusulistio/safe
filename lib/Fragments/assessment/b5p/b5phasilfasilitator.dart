@@ -405,11 +405,11 @@ class _B5PHasillFasilitatorState extends State<B5PHasillFasilitator> {
                                               overflow: TextOverflow.ellipsis,
                                             ))),
                                     GridColumn(
-                                        columnName: 'I',
+                                        columnName: 'N',
                                         label: Container(
                                             padding: const EdgeInsets.all(8.0),
                                             alignment: Alignment.center,
-                                            child: const Text('I'))),
+                                            child: const Text('N'))),
                                     GridColumn(
                                         columnName: 'E',
                                         label: Container(
@@ -417,41 +417,23 @@ class _B5PHasillFasilitatorState extends State<B5PHasillFasilitator> {
                                             alignment: Alignment.center,
                                             child: const Text('E'))),
                                     GridColumn(
-                                        columnName: 'S',
+                                        columnName: 'O',
                                         label: Container(
                                             padding: const EdgeInsets.all(8.0),
                                             alignment: Alignment.center,
-                                            child: const Text('S'))),
+                                            child: const Text('O'))),
                                     GridColumn(
-                                        columnName: 'N',
+                                        columnName: 'A',
                                         label: Container(
                                             padding: const EdgeInsets.all(8.0),
                                             alignment: Alignment.center,
-                                            child: const Text('N'))),
+                                            child: const Text('A'))),
                                     GridColumn(
-                                        columnName: 'T',
+                                        columnName: 'C',
                                         label: Container(
                                             padding: const EdgeInsets.all(8.0),
                                             alignment: Alignment.center,
-                                            child: const Text('T'))),
-                                    GridColumn(
-                                        columnName: 'F',
-                                        label: Container(
-                                            padding: const EdgeInsets.all(8.0),
-                                            alignment: Alignment.center,
-                                            child: const Text('F'))),
-                                    GridColumn(
-                                        columnName: 'J',
-                                        label: Container(
-                                            padding: const EdgeInsets.all(8.0),
-                                            alignment: Alignment.center,
-                                            child: const Text('J'))),
-                                    GridColumn(
-                                        columnName: 'P',
-                                        label: Container(
-                                            padding: const EdgeInsets.all(8.0),
-                                            alignment: Alignment.center,
-                                            child: const Text('P'))),
+                                            child: const Text('C'))),
                                   ],
                                 ),
                               )
@@ -541,14 +523,11 @@ class HasilB5PAllRoleDataSource extends DataGridSource {
               DataGridCell<String>(columnName: 'nipbaru', value: e.nipbaru),
               DataGridCell<String>(columnName: 'nama', value: e.nmpeg),
               DataGridCell<String>(columnName: 'namagroup', value: e.nmgroup),
-              DataGridCell<String>(columnName: 'I', value: e.I),
-              DataGridCell<String>(columnName: 'E', value: e.E),
-              DataGridCell<String>(columnName: 'S', value: e.S),
               DataGridCell<String>(columnName: 'N', value: e.N),
-              DataGridCell<String>(columnName: 'T', value: e.T),
-              DataGridCell<String>(columnName: 'F', value: e.F),
-              DataGridCell<String>(columnName: 'J', value: e.J),
-              DataGridCell<String>(columnName: 'P', value: e.P),
+              DataGridCell<String>(columnName: 'E', value: e.E),
+              DataGridCell<String>(columnName: 'O', value: e.O),
+              DataGridCell<String>(columnName: 'A', value: e.A),
+              DataGridCell<String>(columnName: 'C', value: e.C),
             ]))
         .toList();
   }

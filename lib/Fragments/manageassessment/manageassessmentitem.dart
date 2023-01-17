@@ -75,6 +75,9 @@ class _ManageAssessmentItemState extends State<ManageAssessmentItem> {
   // }
 
   Future<void> getGroupingKelas() async {
+    setState(() {
+      lgrouping.clear();
+    });
     var req = await apiService.getGroupingKelas(nip, indasmnt.idkelas);
     //print(req.body);
 
@@ -88,7 +91,6 @@ class _ManageAssessmentItemState extends State<ManageAssessmentItem> {
 
     //print("jumlah "+tgrouping.length.toString());
     setState(() {
-      lgrouping.clear();
       lgrouping = tasmnt;
     });
 
@@ -108,6 +110,7 @@ class _ManageAssessmentItemState extends State<ManageAssessmentItem> {
 
   ExpansionTile makeExpansionTile(TestKelasGrouping indasmnt) {
     //print("ni nama nya 1 "+indasmnt.namates);
+    //print("jumlah lgrouping "+lgrouping[0].groupingname);
     return ExpansionTile(
       //contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
       leading: Container(
@@ -146,7 +149,7 @@ class _ManageAssessmentItemState extends State<ManageAssessmentItem> {
                   flex: 4,
                   child: Theme(
                     data: ThemeData(
-                      textTheme: TextTheme(subtitle1: TextStyle(color: Colors.white)),
+                      textTheme: TextTheme(subtitle1: TextStyle(color: Colors.teal)),
                     ),
                     child: DropdownSearch<Grouping>(
                       items: lgrouping,
@@ -161,9 +164,14 @@ class _ManageAssessmentItemState extends State<ManageAssessmentItem> {
                         updateGrouping(indasmnt, data);
                         selectedgrouping=data;
                       } ,
-                      showSearchBox: true,
+                      clearButtonProps: ClearButtonProps(isVisible: true),
+                      //showSearchBox: true,
+                      popupProps: PopupProps.menu(
+                        showSearchBox: true,
+                        //title: Text('default fit'),
+                      ),
                       selectedItem: selectedgrouping,
-                      showClearButton: true,
+                      //showClearButton: true,
                     ),
                   ),
                 ),
@@ -175,6 +183,7 @@ class _ManageAssessmentItemState extends State<ManageAssessmentItem> {
         value: isSwitched,
         onChanged: (value) {
           if(value==true){
+            print("group select "+indasmnt.ingroup);
             if(selectedgrouping==null && indasmnt.ingroup==1){
               Get.defaultDialog(
                 content: MyDialogInfo(info: "Assessment ini memerlukan Grouping!"),

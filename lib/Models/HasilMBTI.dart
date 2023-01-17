@@ -11,7 +11,7 @@ class HasilMBTI{
   factory HasilMBTI.fromJSON(Map<String, dynamic> json) {
     return HasilMBTI(
       dimensi: json["atribut1"],
-      skor: json["totalskormentah"].toString(),
+      skor: double.parse(json["totalskormentah"]).toStringAsFixed(2),
     );
   }
 

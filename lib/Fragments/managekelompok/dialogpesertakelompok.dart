@@ -201,9 +201,10 @@ class _MyDialogPesertaKelompokState extends State<MyDialogPesertaKelompok> {
             //print(data);
             psrts=data!;
           } ,
-          showSearchBox: true,
+          clearButtonProps: ClearButtonProps(isVisible: true),
+          //showSearchBox: true,
           selectedItems: selected,
-          showClearButton: true,
+          //showClearButton: true,
         ),
         SizedBox(height: 10),
         // DropdownSearch<String>(

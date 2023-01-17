@@ -574,7 +574,7 @@ class HasilBelbinAllRoleDataSource extends DataGridSource {
                 return MaterialButton(
                     color: Colors.teal,
                     onPressed: () async {
-                      var req = await apiService.getSkorBelbin(
+                      var req = await apiService.getSkorBelbin2(
                           user: nip,
                           idkelas: tkg.idkelas,
                           iddiklat: tkg.iddiklat,

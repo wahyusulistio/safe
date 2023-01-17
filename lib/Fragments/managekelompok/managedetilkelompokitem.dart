@@ -200,9 +200,9 @@ class _ManageDetilKelompokItemState extends State<ManageDetilKelompokItem> {
                 color: Colors.white,
               )
             : Container(),
-        (kls.id_diklat == grouping.diklatid &&
-                kls.id_matadiklat == grouping.matadiklatid)
-            ? ListTile(
+        // (kls.id_diklat == grouping.diklatid &&
+        //         kls.id_matadiklat == grouping.matadiklatid) ?
+        ListTile(
                 // leading: CircleAvatar(
                 //   backgroundColor: Colors.blue,
                 // ),
@@ -282,8 +282,9 @@ class _ManageDetilKelompokItemState extends State<ManageDetilKelompokItem> {
                     ),
                   ),
                 ],
-              ))
-            : Container(),
+              )
+        ),
+        //    : Container(),
         Container(
           margin: EdgeInsets.symmetric(horizontal: 5),
           height: 1,
@@ -362,9 +363,10 @@ class _ManageDetilKelompokItemState extends State<ManageDetilKelompokItem> {
                 Text(lp[i].fullname,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 11.0)),
-                (kls.id_diklat == grouping.diklatid &&
-                    kls.id_matadiklat == grouping.matadiklatid)
-                    ? InkWell(
+                // (kls.id_diklat == grouping.diklatid &&
+                //     kls.id_matadiklat == grouping.matadiklatid)
+                //     ?
+                InkWell(
                   onTap: () async {
                     await apiService.deletePesertaDariGroup(user: nip, idgruppeserta: group.groupid, nippeserta: lp[i].niplama);
                     getPesertaInGroup();
@@ -372,7 +374,8 @@ class _ManageDetilKelompokItemState extends State<ManageDetilKelompokItem> {
                       getWidget(psrts);
                     });
                   },
-                    child: Icon(Icons.close, size: 11.0)) : Container(),
+                    child: Icon(Icons.close, size: 11.0)),
+                    //: Container(),
               ],
             )),
       );

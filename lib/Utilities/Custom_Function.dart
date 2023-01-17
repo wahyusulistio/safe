@@ -19,5 +19,11 @@ class CustomFunction{
     String tahun=harijam.substring(0,4);
     return tgl+" "+bulan+" "+tahun+" pukul "+harijam.substring(11,16);
   }
+  static String BahasaTanggal(String tanggal){
+    String tgl=tanggal.substring(8,10);
+    String bulan=getNamaBulan(int.parse(tanggal.substring(5,7))-1);
+    String tahun=tanggal.substring(0,4);
+    return tgl+" "+bulan+" "+tahun;
+  }
 
 }

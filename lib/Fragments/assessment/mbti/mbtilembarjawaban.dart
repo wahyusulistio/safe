@@ -513,11 +513,6 @@ class _MBTILembarJawabanState extends State<MBTILembarJawaban> {
                                 setState(() {
                                   isLoading = false;
                                 });
-                                Get.defaultDialog(
-                                  content:
-                                  MyDialogInfo(info: "MBTI telah disubmit"),
-                                  titleStyle: TextStyle(fontSize: 0),
-                                );
                               }, onError: (err) {
                                 Get.defaultDialog(
                                   content:
@@ -526,6 +521,11 @@ class _MBTILembarJawabanState extends State<MBTILembarJawaban> {
                                 );
                               });
 
+                              await Get.defaultDialog(
+                                content:
+                                MyDialogInfo(info: "MBTI telah disubmit"),
+                                titleStyle: TextStyle(fontSize: 0),
+                              );
                               //Get.back();
                               var req = await apiService.getSkorMBTI(
                                   user: nip,
@@ -535,8 +535,8 @@ class _MBTILembarJawabanState extends State<MBTILembarJawaban> {
                                   idtest: tkg.idtest,
                                   nippeserta: nip,
                                 tglpengisian: DateTime.now().year.toString()+"-"+
-                                    DateTime.now().month.toString()+"-"+
-                                    DateTime.now().day.toString()
+                                    DateTime.now().month.toString().padLeft(2,'0')+"-"+
+                                    DateTime.now().day.toString().padLeft(2,'0')
                               );
 
                               List<HasilMBTI> thb = <HasilMBTI>[];
@@ -566,7 +566,7 @@ class _MBTILembarJawabanState extends State<MBTILembarJawaban> {
                                     : MediaQuery.of(context).size.height * 0.08,
                                 child: new CircularProgressIndicator(
                                   valueColor: new AlwaysStoppedAnimation<Color>(
-                                      Colors.white),
+                                      Colors.teal),
                                 ),
                               )
                             : Row(

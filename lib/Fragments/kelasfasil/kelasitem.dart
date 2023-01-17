@@ -64,7 +64,7 @@ class _KelasItemState extends State<KelasItem> {
             ),*/
       ),
       title: Text(
-        kelas.namakelas,
+        kelas.namakelas + " - " + kelas.lokasi,
         style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -89,7 +89,7 @@ class _KelasItemState extends State<KelasItem> {
             //flex: 4,
             child: Padding(
                 padding: EdgeInsets.only(left: 0.0, bottom: 5, top: 5),
-                child: Text(kelas.namadiklat,
+                child: Text(kelas.id_diklat,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: max(
@@ -99,7 +99,7 @@ class _KelasItemState extends State<KelasItem> {
             //flex: 4,
             child: Padding(
                 padding: EdgeInsets.only(left: 0.0),
-                child: Text(kelas.namamatadiklat,
+                child: Text(kelas.tglmulai + " s.d. "+kelas.tglselesai,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: max(

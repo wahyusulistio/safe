@@ -36,14 +36,14 @@ class HasilMBTIAllRole{
       nipbaru: json["nip_baru"].toString(),
       nmpeg: json["nm_peg"].toString(),
       nmgroup: json["namagroup"].toString(),
-      I: json["I"].toString(),
-      E: json["E"].toString(),
-      S: json["S"].toString(),
-      N: json["N"].toString(),
-      T: json["T"].toString(),
-      F: json["F"].toString(),
-      J: json["J"].toString(),
-      P: json["P"].toString(),
+      I: double.parse(json["I"]).toString(),
+      E: double.parse(json["E"]).toString(),
+      S: double.parse(json["S"]).toString(),
+      N: double.parse(json["N"]).toString(),
+      T: double.parse(json["T"]).toString(),
+      F: double.parse(json["F"]).toString(),
+      J: double.parse(json["J"]).toString(),
+      P: double.parse(json["P"]).toString(),
     );
   }
 

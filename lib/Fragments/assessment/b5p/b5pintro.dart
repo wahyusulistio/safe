@@ -66,6 +66,9 @@ class _B5PIntroState extends State<B5PIntro> {
   }
 
   Future<void> initializeB5P() async {
+    setState((){
+      isLoading=true;
+    });
     listpertanyaan= await getSoalTest(idtest);
     List<PilihanJawaban> tjawab=<PilihanJawaban>[];
     //List<int> tbobot=<int>[];
@@ -78,6 +81,9 @@ class _B5PIntroState extends State<B5PIntro> {
       //tbobot=List.generate(tjawab.length, (index) => 0);
       //bobotjawaban.add(tbobot);
     }
+    setState((){
+      isLoading=false;
+    });
   }
 
   @override
@@ -102,10 +108,9 @@ class _B5PIntroState extends State<B5PIntro> {
                   //height: MediaQuery.of(context).size.height - 150,
                   child: SingleChildScrollView(
                     child: Html(
-                      data: """<p>Tes ini terdiri atas 60 nomor soal.</p>
-<p>Masing-masing nomor memiliki dua pernyataan (Pernyataan A dan B).</p>
-<p>Pilihlah salah satu pernyataan yang paling sesuai dengan diri Anda pada setiap nomor soal.</p>
-<p>Anda HARUS memilih salah satu yang paling dominan pada diri Anda.</p>
+                      data: """<p>Tes ini terdiri atas 25 nomor soal.</p>
+<p>Masing-masing nomor memiliki dua sisi pernyataan.</p>
+<p>Anda diharapkan dapat memilih skala yang paling sesuai dengan diri Anda diantara dua penyataan tersebut pada setiap nomor soal.</p>
 <p>Pastikan seluruh nomor terisi tanpa terlewat.</p>
                       """,
                       style: {
@@ -150,12 +155,12 @@ class _B5PIntroState extends State<B5PIntro> {
                       child: isLoading ?
                       SizedBox(
                         width: (MediaQuery.of(context).size.width<MediaQuery.of(context).size.height) ?
-                        MediaQuery.of(context).size.width * 0.08 :
-                        MediaQuery.of(context).size.height * 0.08,
+                        MediaQuery.of(context).size.width * 0.06 :
+                        MediaQuery.of(context).size.height * 0.06,
                         height: (MediaQuery.of(context).size.width<MediaQuery.of(context).size.height) ?
-                        MediaQuery.of(context).size.width * 0.08 :
-                        MediaQuery.of(context).size.height * 0.08,
-                        child: new CircularProgressIndicator(valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),),
+                        MediaQuery.of(context).size.width * 0.06 :
+                        MediaQuery.of(context).size.height * 0.06,
+                        child: new CircularProgressIndicator(valueColor: new AlwaysStoppedAnimation<Color>(Colors.teal),),
                       ): Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
